@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package cosi;
+
+service Provisioner {
+    rpc Provision (ProvisionRequest) returns (ProvisionResponse){}
+    rpc Deprovision (DeprovisionRequest) returns (DeprovisionResponse){}
+}
+
+message ProvisionRequest {
+    string requestBucketName = 1;
+}
+
+message ProvisionResponse {
+    map<string, string> credentials = 1;
+    map<string, string> metadata = 2;
+    string endpoint = 3;
+    bool failed = 4;
+    string errorMessage = 5;
+}
+
+message DeprovisionRequest {
+    string bucketName = 1;
+}
+
+message DeprovisionResponse {
+    bool failed = 1;
+}
