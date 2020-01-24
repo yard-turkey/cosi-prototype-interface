@@ -4,19 +4,20 @@ package cosi;
 
 service Provisioner {
     rpc Provision (ProvisionRequest) returns (ProvisionResponse){}
-    rpc Deprovision (DeprovisionRequest) returns (DeprovisionResponse){}
+     rpc Deprovision (DeprovisionRequest) returns (DeprovisionResponse){}
 }
 
 message ProvisionRequest {
     string requestBucketName = 1;
+    string region = 2;
 }
 
 message ProvisionResponse {
-    map<string, string> credentials = 1;
-    map<string, string> metadata = 2;
-    string endpoint = 3;
-    bool failed = 4;
-    string errorMessage = 5;
+    string bucketName = 1;
+    string endpoint = 2;
+    string region = 3;
+    map<string, string> environmentCredentials = 5;
+    map<string, string> data = 6;
 }
 
 message DeprovisionRequest {
@@ -24,5 +25,5 @@ message DeprovisionRequest {
 }
 
 message DeprovisionResponse {
-    bool failed = 1;
+    string message = 3;
 }
