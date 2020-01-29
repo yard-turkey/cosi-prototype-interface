@@ -2,9 +2,20 @@ syntax = "proto3";
 
 package cosi;
 
+
+
 service Provisioner {
+    rpc GetPluginName (PluginNameRequest) returns (PluginNameResponse) {}
     rpc Provision (ProvisionRequest) returns (ProvisionResponse){}
-     rpc Deprovision (DeprovisionRequest) returns (DeprovisionResponse){}
+    rpc Deprovision (DeprovisionRequest) returns (DeprovisionResponse){}
+}
+
+message PluginNameRequest {
+    // Deliberately empty
+}
+
+message PluginNameResponse {
+    string name = 1;
 }
 
 message ProvisionRequest {
@@ -16,8 +27,8 @@ message ProvisionResponse {
     string bucketName = 1;
     string endpoint = 2;
     string region = 3;
-    map<string, string> environmentCredentials = 5;
-    map<string, string> data = 6;
+    map<string, string> environmentCredentials = 4;
+    map<string, string> data = 5;
 }
 
 message DeprovisionRequest {

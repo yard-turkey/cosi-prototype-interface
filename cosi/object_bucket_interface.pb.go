@@ -24,6 +24,76 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
+type PluginNameRequest struct {
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *PluginNameRequest) Reset()         { *m = PluginNameRequest{} }
+func (m *PluginNameRequest) String() string { return proto.CompactTextString(m) }
+func (*PluginNameRequest) ProtoMessage()    {}
+func (*PluginNameRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_056cd8199f3a1065, []int{0}
+}
+
+func (m *PluginNameRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_PluginNameRequest.Unmarshal(m, b)
+}
+func (m *PluginNameRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_PluginNameRequest.Marshal(b, m, deterministic)
+}
+func (m *PluginNameRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_PluginNameRequest.Merge(m, src)
+}
+func (m *PluginNameRequest) XXX_Size() int {
+	return xxx_messageInfo_PluginNameRequest.Size(m)
+}
+func (m *PluginNameRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_PluginNameRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_PluginNameRequest proto.InternalMessageInfo
+
+type PluginNameResponse struct {
+	Name                 string   `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *PluginNameResponse) Reset()         { *m = PluginNameResponse{} }
+func (m *PluginNameResponse) String() string { return proto.CompactTextString(m) }
+func (*PluginNameResponse) ProtoMessage()    {}
+func (*PluginNameResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_056cd8199f3a1065, []int{1}
+}
+
+func (m *PluginNameResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_PluginNameResponse.Unmarshal(m, b)
+}
+func (m *PluginNameResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_PluginNameResponse.Marshal(b, m, deterministic)
+}
+func (m *PluginNameResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_PluginNameResponse.Merge(m, src)
+}
+func (m *PluginNameResponse) XXX_Size() int {
+	return xxx_messageInfo_PluginNameResponse.Size(m)
+}
+func (m *PluginNameResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_PluginNameResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_PluginNameResponse proto.InternalMessageInfo
+
+func (m *PluginNameResponse) GetName() string {
+	if m != nil {
+		return m.Name
+	}
+	return ""
+}
+
 type ProvisionRequest struct {
 	RequestBucketName    string   `protobuf:"bytes,1,opt,name=requestBucketName,proto3" json:"requestBucketName,omitempty"`
 	Region               string   `protobuf:"bytes,2,opt,name=region,proto3" json:"region,omitempty"`
@@ -36,7 +106,7 @@ func (m *ProvisionRequest) Reset()         { *m = ProvisionRequest{} }
 func (m *ProvisionRequest) String() string { return proto.CompactTextString(m) }
 func (*ProvisionRequest) ProtoMessage()    {}
 func (*ProvisionRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_056cd8199f3a1065, []int{0}
+	return fileDescriptor_056cd8199f3a1065, []int{2}
 }
 
 func (m *ProvisionRequest) XXX_Unmarshal(b []byte) error {
@@ -75,8 +145,8 @@ type ProvisionResponse struct {
 	BucketName             string            `protobuf:"bytes,1,opt,name=bucketName,proto3" json:"bucketName,omitempty"`
 	Endpoint               string            `protobuf:"bytes,2,opt,name=endpoint,proto3" json:"endpoint,omitempty"`
 	Region                 string            `protobuf:"bytes,3,opt,name=region,proto3" json:"region,omitempty"`
-	EnvironmentCredentials map[string]string `protobuf:"bytes,5,rep,name=environmentCredentials,proto3" json:"environmentCredentials,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
-	Data                   map[string]string `protobuf:"bytes,6,rep,name=data,proto3" json:"data,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	EnvironmentCredentials map[string]string `protobuf:"bytes,4,rep,name=environmentCredentials,proto3" json:"environmentCredentials,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	Data                   map[string]string `protobuf:"bytes,5,rep,name=data,proto3" json:"data,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 	XXX_NoUnkeyedLiteral   struct{}          `json:"-"`
 	XXX_unrecognized       []byte            `json:"-"`
 	XXX_sizecache          int32             `json:"-"`
@@ -86,7 +156,7 @@ func (m *ProvisionResponse) Reset()         { *m = ProvisionResponse{} }
 func (m *ProvisionResponse) String() string { return proto.CompactTextString(m) }
 func (*ProvisionResponse) ProtoMessage()    {}
 func (*ProvisionResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_056cd8199f3a1065, []int{1}
+	return fileDescriptor_056cd8199f3a1065, []int{3}
 }
 
 func (m *ProvisionResponse) XXX_Unmarshal(b []byte) error {
@@ -153,7 +223,7 @@ func (m *DeprovisionRequest) Reset()         { *m = DeprovisionRequest{} }
 func (m *DeprovisionRequest) String() string { return proto.CompactTextString(m) }
 func (*DeprovisionRequest) ProtoMessage()    {}
 func (*DeprovisionRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_056cd8199f3a1065, []int{2}
+	return fileDescriptor_056cd8199f3a1065, []int{4}
 }
 
 func (m *DeprovisionRequest) XXX_Unmarshal(b []byte) error {
@@ -192,7 +262,7 @@ func (m *DeprovisionResponse) Reset()         { *m = DeprovisionResponse{} }
 func (m *DeprovisionResponse) String() string { return proto.CompactTextString(m) }
 func (*DeprovisionResponse) ProtoMessage()    {}
 func (*DeprovisionResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_056cd8199f3a1065, []int{3}
+	return fileDescriptor_056cd8199f3a1065, []int{5}
 }
 
 func (m *DeprovisionResponse) XXX_Unmarshal(b []byte) error {
@@ -221,6 +291,8 @@ func (m *DeprovisionResponse) GetMessage() string {
 }
 
 func init() {
+	proto.RegisterType((*PluginNameRequest)(nil), "cosi.PluginNameRequest")
+	proto.RegisterType((*PluginNameResponse)(nil), "cosi.PluginNameResponse")
 	proto.RegisterType((*ProvisionRequest)(nil), "cosi.ProvisionRequest")
 	proto.RegisterType((*ProvisionResponse)(nil), "cosi.ProvisionResponse")
 	proto.RegisterMapType((map[string]string)(nil), "cosi.ProvisionResponse.DataEntry")
@@ -232,29 +304,32 @@ func init() {
 func init() { proto.RegisterFile("object_bucket_interface.proto", fileDescriptor_056cd8199f3a1065) }
 
 var fileDescriptor_056cd8199f3a1065 = []byte{
-	// 355 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x94, 0x92, 0xc1, 0x4f, 0xea, 0x40,
-	0x10, 0xc6, 0x5f, 0x29, 0xf0, 0x1e, 0xc3, 0x05, 0xe6, 0xbd, 0xf0, 0x6a, 0x8d, 0x06, 0x7b, 0xe2,
-	0x60, 0x6a, 0x02, 0x1a, 0x8d, 0x07, 0x0f, 0x0a, 0x07, 0x2f, 0xc6, 0x70, 0xf2, 0x46, 0xb6, 0x65,
-	0x24, 0x2b, 0xb0, 0x5b, 0x77, 0x17, 0x12, 0xfe, 0x0a, 0x0f, 0xfe, 0xc3, 0x86, 0xb6, 0x34, 0x95,
-	0x82, 0xc6, 0xdb, 0x7e, 0xdd, 0x99, 0xdf, 0xcc, 0x7e, 0x5f, 0xe1, 0x48, 0x06, 0x2f, 0x14, 0x9a,
-	0x51, 0xb0, 0x08, 0xa7, 0x64, 0x46, 0x5c, 0x18, 0x52, 0xcf, 0x2c, 0x24, 0x3f, 0x52, 0xd2, 0x48,
-	0x2c, 0x87, 0x52, 0x73, 0xef, 0x09, 0x1a, 0x8f, 0x4a, 0x2e, 0xb9, 0xe6, 0x52, 0x0c, 0xe9, 0x75,
-	0x41, 0xda, 0xe0, 0x29, 0x34, 0x55, 0x72, 0xbc, 0x8d, 0x5b, 0x1f, 0xd8, 0x9c, 0x1c, 0xab, 0x6d,
-	0x75, 0x6a, 0xc3, 0xe2, 0x05, 0xb6, 0xa0, 0xaa, 0x68, 0xc2, 0xa5, 0x70, 0x4a, 0x71, 0x49, 0xaa,
-	0xbc, 0x37, 0x1b, 0x9a, 0x39, 0xb4, 0x8e, 0xa4, 0xd0, 0x84, 0xc7, 0x00, 0xc1, 0x36, 0x34, 0xf7,
-	0x05, 0x5d, 0xf8, 0x43, 0x62, 0x1c, 0x49, 0x2e, 0x4c, 0xca, 0xcb, 0x74, 0x6e, 0x92, 0x9d, 0x9f,
-	0x84, 0x53, 0x68, 0x91, 0x58, 0x72, 0x25, 0xc5, 0x9c, 0x84, 0xb9, 0x53, 0x34, 0x26, 0x61, 0x38,
-	0x9b, 0x69, 0xa7, 0xd2, 0xb6, 0x3b, 0xf5, 0x6e, 0xcf, 0x5f, 0x3f, 0xd5, 0x2f, 0x2c, 0xe3, 0x0f,
-	0x76, 0x76, 0x0d, 0x84, 0x51, 0xab, 0xe1, 0x1e, 0x24, 0x5e, 0x40, 0x79, 0xcc, 0x0c, 0x73, 0xaa,
-	0x31, 0xfa, 0x64, 0x1f, 0xba, 0xcf, 0x0c, 0x4b, 0x40, 0x71, 0xb9, 0x7b, 0x0f, 0x87, 0x5f, 0x4c,
-	0xc3, 0x06, 0xd8, 0x53, 0x5a, 0xa5, 0x7e, 0xac, 0x8f, 0xf8, 0x0f, 0x2a, 0x4b, 0x36, 0x5b, 0x50,
-	0xea, 0x42, 0x22, 0xae, 0x4b, 0x57, 0x96, 0x7b, 0x09, 0xb5, 0x8c, 0xfe, 0x93, 0x46, 0xef, 0x1c,
-	0xb0, 0x4f, 0xd1, 0x76, 0xda, 0xdf, 0x24, 0xe2, 0x9d, 0xc1, 0xdf, 0x4f, 0x5d, 0x69, 0x90, 0x0e,
-	0xfc, 0x9e, 0x93, 0xd6, 0x6c, 0x42, 0x69, 0x1a, 0x1b, 0xd9, 0x7d, 0xb7, 0xa0, 0x9e, 0x19, 0x42,
-	0x0a, 0x6f, 0xa0, 0x96, 0x49, 0x6c, 0x15, 0x0c, 0x8b, 0xb7, 0x70, 0xff, 0xef, 0x31, 0xd2, 0xfb,
-	0x85, 0x7d, 0xa8, 0xe7, 0x16, 0x40, 0x27, 0xa9, 0x2c, 0xbe, 0xc4, 0x3d, 0xd8, 0x71, 0xb3, 0xa1,
-	0x04, 0xd5, 0xf8, 0xaf, 0xef, 0x7d, 0x04, 0x00, 0x00, 0xff, 0xff, 0xe7, 0xa2, 0xd7, 0x80, 0x16,
+	// 403 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x94, 0x93, 0xc1, 0x8e, 0xd3, 0x30,
+	0x10, 0x86, 0x37, 0x9b, 0xec, 0x42, 0xa7, 0x42, 0xda, 0xce, 0xa2, 0x6e, 0x08, 0x02, 0x2d, 0x3e,
+	0xf5, 0x80, 0x82, 0xb4, 0x0b, 0x02, 0x71, 0xe0, 0x00, 0x59, 0x21, 0x2e, 0xab, 0xaa, 0x27, 0x6e,
+	0x95, 0x93, 0x0e, 0x95, 0x69, 0x63, 0x07, 0xdb, 0xa9, 0xd4, 0xa7, 0xe0, 0xf9, 0x78, 0x1b, 0xd4,
+	0xc4, 0x4d, 0x43, 0xd3, 0x82, 0xb8, 0x79, 0x3c, 0x9e, 0xef, 0x77, 0xfe, 0xdf, 0x81, 0x67, 0x2a,
+	0xfd, 0x4e, 0x99, 0x9d, 0xa6, 0x65, 0xb6, 0x20, 0x3b, 0x15, 0xd2, 0x92, 0xfe, 0xc6, 0x33, 0x8a,
+	0x0b, 0xad, 0xac, 0xc2, 0x20, 0x53, 0x46, 0xb0, 0x4b, 0x18, 0x8c, 0x97, 0xe5, 0x5c, 0xc8, 0x7b,
+	0x9e, 0xd3, 0x84, 0x7e, 0x94, 0x64, 0x2c, 0x1b, 0x01, 0xb6, 0x37, 0x4d, 0xa1, 0xa4, 0x21, 0x44,
+	0x08, 0x24, 0xcf, 0x29, 0xf4, 0xae, 0xbd, 0x51, 0x6f, 0x52, 0xad, 0xd9, 0x57, 0xb8, 0x18, 0x6b,
+	0xb5, 0x12, 0x46, 0x28, 0xe9, 0xa6, 0xf1, 0x25, 0x0c, 0x74, 0xbd, 0xfc, 0x58, 0x29, 0xdf, 0xef,
+	0x86, 0xba, 0x0d, 0x1c, 0xc2, 0xb9, 0xa6, 0xb9, 0x50, 0x32, 0x3c, 0xad, 0x8e, 0xb8, 0x8a, 0xfd,
+	0xf4, 0x61, 0xd0, 0x42, 0xbb, 0x3b, 0x3c, 0x07, 0x48, 0xf7, 0xa1, 0xad, 0x1d, 0x8c, 0xe0, 0x21,
+	0xc9, 0x59, 0xa1, 0x84, 0xb4, 0x8e, 0xd7, 0xd4, 0x2d, 0x25, 0xbf, 0xad, 0x84, 0x0b, 0x18, 0x92,
+	0x5c, 0x09, 0xad, 0x64, 0x4e, 0xd2, 0x7e, 0xd2, 0x34, 0x23, 0x69, 0x05, 0x5f, 0x9a, 0x30, 0xb8,
+	0xf6, 0x47, 0xfd, 0x9b, 0xdb, 0x78, 0xe3, 0x54, 0xdc, 0xb9, 0x4c, 0x7c, 0x77, 0x70, 0xea, 0x4e,
+	0x5a, 0xbd, 0x9e, 0x1c, 0x41, 0xe2, 0x1b, 0x08, 0x66, 0xdc, 0xf2, 0xf0, 0xac, 0x42, 0xbf, 0x38,
+	0x86, 0x4e, 0xb8, 0xe5, 0x35, 0xa8, 0x3a, 0x1e, 0x7d, 0x81, 0xa7, 0x7f, 0x51, 0xc3, 0x0b, 0xf0,
+	0x17, 0xb4, 0x76, 0x7e, 0x6c, 0x96, 0xf8, 0x18, 0xce, 0x56, 0x7c, 0x59, 0x92, 0x73, 0xa1, 0x2e,
+	0xde, 0x9f, 0xbe, 0xf3, 0xa2, 0xb7, 0xd0, 0x6b, 0xe8, 0xff, 0x33, 0xc8, 0x5e, 0x03, 0x26, 0x54,
+	0xec, 0xa7, 0xfd, 0x8f, 0x44, 0xd8, 0x2b, 0xb8, 0xfc, 0x63, 0xca, 0x05, 0x19, 0xc2, 0x83, 0x9c,
+	0x8c, 0xe1, 0x73, 0x72, 0x69, 0x6c, 0xcb, 0x9b, 0x5f, 0x1e, 0xf4, 0x1b, 0x43, 0x48, 0x63, 0x02,
+	0x8f, 0x3e, 0x93, 0xdd, 0xbd, 0x47, 0xbc, 0x72, 0xa6, 0xed, 0x3f, 0xdb, 0x28, 0xec, 0x36, 0x6a,
+	0x35, 0x76, 0x82, 0x1f, 0xa0, 0xd7, 0x40, 0x71, 0xd8, 0xb1, 0xbd, 0x06, 0x5c, 0x1d, 0x89, 0x83,
+	0x9d, 0x60, 0x02, 0xfd, 0xd6, 0x67, 0xa0, 0x93, 0xea, 0xfa, 0x11, 0x3d, 0x39, 0xd0, 0xd9, 0x52,
+	0xd2, 0xf3, 0xea, 0xd7, 0xbb, 0xfd, 0x1d, 0x00, 0x00, 0xff, 0xff, 0x3c, 0x16, 0x93, 0x7b, 0x9b,
 	0x03, 0x00, 0x00,
 }
 
@@ -270,6 +345,7 @@ const _ = grpc.SupportPackageIsVersion4
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type ProvisionerClient interface {
+	GetPluginName(ctx context.Context, in *PluginNameRequest, opts ...grpc.CallOption) (*PluginNameResponse, error)
 	Provision(ctx context.Context, in *ProvisionRequest, opts ...grpc.CallOption) (*ProvisionResponse, error)
 	Deprovision(ctx context.Context, in *DeprovisionRequest, opts ...grpc.CallOption) (*DeprovisionResponse, error)
 }
@@ -280,6 +356,15 @@ type provisionerClient struct {
 
 func NewProvisionerClient(cc *grpc.ClientConn) ProvisionerClient {
 	return &provisionerClient{cc}
+}
+
+func (c *provisionerClient) GetPluginName(ctx context.Context, in *PluginNameRequest, opts ...grpc.CallOption) (*PluginNameResponse, error) {
+	out := new(PluginNameResponse)
+	err := c.cc.Invoke(ctx, "/cosi.Provisioner/GetPluginName", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
 func (c *provisionerClient) Provision(ctx context.Context, in *ProvisionRequest, opts ...grpc.CallOption) (*ProvisionResponse, error) {
@@ -302,6 +387,7 @@ func (c *provisionerClient) Deprovision(ctx context.Context, in *DeprovisionRequ
 
 // ProvisionerServer is the server API for Provisioner service.
 type ProvisionerServer interface {
+	GetPluginName(context.Context, *PluginNameRequest) (*PluginNameResponse, error)
 	Provision(context.Context, *ProvisionRequest) (*ProvisionResponse, error)
 	Deprovision(context.Context, *DeprovisionRequest) (*DeprovisionResponse, error)
 }
@@ -310,6 +396,9 @@ type ProvisionerServer interface {
 type UnimplementedProvisionerServer struct {
 }
 
+func (*UnimplementedProvisionerServer) GetPluginName(ctx context.Context, req *PluginNameRequest) (*PluginNameResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPluginName not implemented")
+}
 func (*UnimplementedProvisionerServer) Provision(ctx context.Context, req *ProvisionRequest) (*ProvisionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Provision not implemented")
 }
@@ -319,6 +408,24 @@ func (*UnimplementedProvisionerServer) Deprovision(ctx context.Context, req *Dep
 
 func RegisterProvisionerServer(s *grpc.Server, srv ProvisionerServer) {
 	s.RegisterService(&_Provisioner_serviceDesc, srv)
+}
+
+func _Provisioner_GetPluginName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PluginNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProvisionerServer).GetPluginName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/cosi.Provisioner/GetPluginName",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProvisionerServer).GetPluginName(ctx, req.(*PluginNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
 }
 
 func _Provisioner_Provision_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -361,6 +468,10 @@ var _Provisioner_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "cosi.Provisioner",
 	HandlerType: (*ProvisionerServer)(nil),
 	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetPluginName",
+			Handler:    _Provisioner_GetPluginName_Handler,
+		},
 		{
 			MethodName: "Provision",
 			Handler:    _Provisioner_Provision_Handler,
